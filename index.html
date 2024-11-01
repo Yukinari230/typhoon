@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="ここにページの概要が入ります。">
+
+        <title>PyScriptテスト</title>
+        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <py-env>
+            - plotly
+        </py-env>
+    </head>
+ <body>
+
+<py-script>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <py-script>
+import plotly.graph_objects as go
+
+
+fig = go.Figure(data=go.Scattergeo(
+    lat = [15.06,16.77,16.1,16.65,16.75,17.12,17.42,19.31,21.59,27.93,29.75],
+    lon = [142.43,133.83,132.5,130.16,129.04,127.4,124.82,122.43,121.21,122.8],
+
+    marker_size=24,
+    marker_color='red',
+    marker_symbol='star'
+))
+aa=20.38-19.90
+bb=121.91-122.9
+
+
+fig.add_scattergeo(
+lat=[],
+lon=[],
+marker_size=20,
+marker_color='red',
+marker_symbol='star'
+)
+cc=26.37-25.2
+dd=140.50-140.33
+
+
+
+
+fig.add_scattergeo(lat = [26.7,29.3,32,34,35.1]
+                  ,lon = [120.6,123.1,128.1,136.3,144.6]
+                  ,mode='lines'
+                  ,line=dict(width=3,color='red'))
+
+
+fig.add_scattergeo(lat=[]
+                  ,lon=[]
+                  ,mode='lines'
+                  ,line=dict(width=4,color='green')
+                  )
+
+fig.add_scattergeo(lat=[27.2,29.3,32.3,34]
+                  ,lon=[121,123.9,133.6,150]
+                  ,mode='lines'
+                  ,line=dict(width=6,color='cyan'),
+                  )
+
+fig.update_layout(
+    title_text = 'Typhoon #10 maximum wind speed 96 knot',
+    showlegend = False,
+    geo = dict(
+        resolution = 50,
+        showland = True,
+        showlakes = True,
+        landcolor = 'rgb(204, 204, 204)',
+        countrycolor = 'rgb(204, 204, 204)',
+        lakecolor = 'rgb(255, 255, 255)',
+        projection_type = "equirectangular",
+        coastlinewidth = 2,
+        lataxis = dict(
+            range = [13,45],
+            showgrid = True,
+            dtick = 10
+        ),
+        lonaxis = dict(
+            range = [115,150],
+            showgrid = True,
+            dtick = 20
+        ),
+    )
+)
+
+
+print(aa,bb,cc,dd)
+
+fig
+
+
+</py-script>
+
+</body>
+</html>
